@@ -5,3 +5,90 @@ This repository has only been tested with the following setup:
 - [ROS Kinetic Kame](http://wiki.ros.org/kinetic/Installation/Ubuntu) (install ros-kinetic-desktop-full unless you are working on a headless server)
 
 These instruction should work even if you are using some form of virtualization, though Gazebo will likely run slow.
+
+
+### General Utilities
+
+Here are a few utilities that will need to be installed:
+
+```bash
+# Retrieve **information** about available packages
+sudo apt-get update
+
+# Install git (version control software)
+sudo apt-get intstall git
+
+# A utility for using the clipboard from the command line
+sudo apt-get install xclip
+```
+
+### Install Terminator
+
+[Terminator](https://gnometerminator.blogspot.com/p/introduction.html) is an improved terminal emulator. I prefer this over the built-in terminal emulator options since it includes tabs and panes.
+
+```bash
+sudo add-apt-repository ppa:gnome-terminator
+sudo apt-get update 
+sudo apt-get install terminator
+```
+
+### Install Zsh and Oh My Zsh
+
+Zsh is my preferred shell on linux. It includes a few extra features and simplifies a few scripting tasks. [Oh My Zsh](http://ohmyz.sh/) is a framework for easy Zsh configuration.
+
+```bash
+# Install Zsh
+sudo apt-get install zsh
+chsh -s $(which zsh)
+
+# Install Oh My Zsh
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+```
+
+### Neovim
+
+Vim is my preferred command-line text editor, and the [neovim](https://neovim.io/) project seems to be headed in a good direction with regard to improving the vim backend (you could just as easily use pure vim).
+
+```bash
+# Install neovim
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get update
+sudo apt-get install neovim
+
+# Grab a basic vim configuration file from github
+git clone git://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_basic_vimrc.sh
+```
+
+### ROS
+
+Now we are ready to install ROS and its related tools. All of these commands are taken from the [ROS wiki about kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu) and from the [Catkin tools documentation](http://catkin-tools.readthedocs.io/en/latest/installing.html).
+
+```bash
+# Tell apt-get about ROS
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+sudo apt-get update
+
+# Install the full desktop version (unless you are working on a headless server!)
+sudo apt-get install ros-kinetic-desktop-full
+
+# If you are on a headless sever you would use this command
+#sudo apt-get install ros-kinetic-ros-base
+
+# Install additional ROS tools
+sudo rosdep init
+rosdep update
+
+# Tell your shell about the ROS environment
+source /opt/ros/kinetic/setup.zsh
+
+# Install additional ROS tools
+sudo apt-get install python-rosinstall
+
+# Install the extremely useful catkin tools
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install python-catkin-tools
+```
+
