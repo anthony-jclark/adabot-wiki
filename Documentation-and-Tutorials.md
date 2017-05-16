@@ -27,3 +27,7 @@
 - You can use an IDE (e.g., Eclipse) to develop and build ROS code
 
 
+
+- https://askubuntu.com/questions/816540/how-do-you-install-hub-git-wrapper-on-ubuntu-with-autocomplete-and-man-documen 
+- http://stackoverflow.com/questions/24987542/is-there-a-link-to-github-for-downloading-a-file-in-the-latest-release-of-a-repo
+

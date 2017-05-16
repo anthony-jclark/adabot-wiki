@@ -1,4 +1,9 @@
-# General Information
+**Project Information**
 
 - [[Home]]
 - [[Development Environment]]
+
+**Contributing**
+
+
+

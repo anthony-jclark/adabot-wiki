@@ -15,8 +15,12 @@ Here are a few utilities that will need to be installed:
 # Retrieve **information** about available packages
 sudo apt-get update
 
+sudo apt-get install jq
+
 # Install git (version control software)
 sudo apt-get intstall git
+
+# Install hub (git wrapper for github)
 
 # A utility for using the clipboard from the command line
 sudo apt-get install xclip
