@@ -12,15 +12,11 @@ These instruction should work even if you are using some form of virtualization,
 Here are a few utilities that will need to be installed:
 
 ```bash
-# Retrieve **information** about available packages
+# Retrieve information about available packages
 sudo apt-get update
-
-sudo apt-get install jq
 
 # Install git (version control software)
 sudo apt-get intstall git
-
-# Install hub (git wrapper for github)
 
 # A utility for using the clipboard from the command line
 sudo apt-get install xclip
@@ -47,6 +43,25 @@ chsh -s $(which zsh)
 
 # Install Oh My Zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+```
+
+### Install hub
+
+`hub` is a wrapper for git that can be used to work with github. It provides an easier means to fork repository and perform pull requests.
+
+```bash
+# Download the latest version of hub (a git wrapper for github)
+curl -s -L https://github.com/github/hub/releases/latest \
+	| egrep -o '/github/hub/releases/download/[v]?[0-9.]*/hub-linux-amd64.*tgz' \
+	| wget --base=http://github.com/ -i - -O hub.tgz
+
+# Install hub
+mkdir hub/ && tar zvxvf hub.tgz -C hub --strip-components 1
+sudo ./hub/install
+mv ./hub/etc/hub.zsh_completion $ZSH/completions/_hub
+
+# Cleanup hub
+rm -rf hub/
 ```
 
 ### Neovim
