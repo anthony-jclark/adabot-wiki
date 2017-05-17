@@ -20,6 +20,9 @@ sudo apt-get intstall git
 
 # A utility for using the clipboard from the command line
 sudo apt-get install xclip
+
+# Enable SSH service for remote login
+sudo apt-get install openssh-server
 ```
 
 ### Install Terminator
