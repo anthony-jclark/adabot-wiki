@@ -1,4 +1,6 @@
 
+Below are a set of instructions for setting up your development environment. This might be a dual booted Ubuntu environment, Ubuntu running in a virtual machine, or Ubuntu-only computer (as we have in the lab). Note: these instructions should be completed before you setup your ([[User-Environment]]).
+
 This repository has only been tested with the following setup:
 
 - [Ubuntu 16.04.2 LTS (Xenial Xerus)](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes)
