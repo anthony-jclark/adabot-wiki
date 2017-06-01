@@ -108,6 +108,9 @@ sudo apt-get install python-rosinstall
 wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install python-catkin-tools
+
+# Install ROS Control
+sudo apt-get install ros-kinetic-ros-control ros-kinetic-ros-controllers
 ```
 
 ### User Configuration
