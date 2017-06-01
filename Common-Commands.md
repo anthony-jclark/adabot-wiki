@@ -1,4 +1,3 @@
-## Commonly Used Commands
 
 Before running any commands, the ROS environment needs to be setup. You should run the following command the first time that you need to use ROS:
 
