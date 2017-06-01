@@ -1,13 +1,12 @@
 
-Below are a set of instructions for setting up your development environment. This might be a dual booted Ubuntu environment, Ubuntu running in a virtual machine, or Ubuntu-only computer (as we have in the lab). Note: these instructions should be completed before you setup your ([[User-Environment]]).
+Below are a set of instructions for setting up your development environment. This might be a dual booted Ubuntu environment, Ubuntu running in a virtual machine, or an Ubuntu-only computer (as we have in the lab).
 
-This repository has only been tested with the following setup:
+These instructions have only been tested with the following setup:
 
 - [Ubuntu 16.04.2 LTS (Xenial Xerus)](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes)
 - [ROS Kinetic Kame](http://wiki.ros.org/kinetic/Installation/Ubuntu) (install ros-kinetic-desktop-full unless you are working on a headless server)
 
-These instruction should work even if you are using some form of virtualization, though Gazebo will likely run slow.
-
+The first several sections below require administrator privilidges. If you are working on the an ARCS Lab machine you can skip down to [User Configuration](#user-configuration) for my suggestions on how to setup your account.
 
 ### General Utilities
 
@@ -37,22 +36,18 @@ sudo apt-get update
 sudo apt-get install terminator
 ```
 
-### Install Zsh and Oh My Zsh
+### Install Zsh
 
-Zsh is my preferred shell on linux. It includes a few extra features and simplifies a few scripting tasks. [Oh My Zsh](http://ohmyz.sh/) is a framework for easy Zsh configuration.
+Zsh is my preferred shell on linux. It includes a few extra features and simplifies a few scripting tasks.
 
 ```bash
-# Install Zsh
 sudo apt-get install zsh
 chsh -s $(which zsh)
-
-# Install Oh My Zsh
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ```
 
 ### Install hub
 
-`hub` is a wrapper for git that can be used to work with github. It provides an easier means to fork repository and perform pull requests.
+[`hub`](https://hub.github.com/) is a wrapper for git that can be used to work more effectively with github. It provides an easier means (a command-line interface) to fork repositories and perform pull requests.
 
 ```bash
 # Download the latest version of hub (a git wrapper for github)
@@ -65,7 +60,7 @@ mkdir hub/ && tar zvxvf hub.tgz -C hub --strip-components 1
 sudo ./hub/install
 mv ./hub/etc/hub.zsh_completion $ZSH/completions/_hub
 
-# Cleanup hub
+# Cleanup the downloaded directory
 rm -rf hub/
 ```
 
@@ -94,11 +89,10 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 sudo apt-get update
 
-# Install the full desktop version (unless you are working on a headless server!)
+# Install the full desktop version, unless you are working on a 
+# headless server--in which case you would use: 
+#    sudo apt-get install ros-kinetic-ros-base
 sudo apt-get install ros-kinetic-desktop-full
-
-# If you are on a headless sever you would use this command
-#sudo apt-get install ros-kinetic-ros-base
 
 # Install additional ROS tools
 sudo rosdep init
@@ -110,9 +104,25 @@ source /opt/ros/kinetic/setup.zsh
 # Install additional ROS tools
 sudo apt-get install python-rosinstall
 
-# Install the extremely useful catkin tools
+# Install the (nicer-to-use) catkin tools
 wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install python-catkin-tools
 ```
 
+### User Configuration
+
+To create a non-administrator on the system you use the `adduser` command:
+
+```bash
+# Update /etc/adduser.conf and /etc/skel to reflect a new user's
+# state prior to running the following
+adduser USERNAME
+```
+
+Now install [Oh My Zsh](http://ohmyz.sh/), a framework for easy Zsh configuration.
+
+```bash
+# Install Oh My Zsh
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+```
