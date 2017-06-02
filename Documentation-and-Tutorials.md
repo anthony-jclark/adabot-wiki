@@ -8,6 +8,8 @@
 - [Gazebo Tutorials](http://gazebosim.org/tutorials)
 
 
+https://github.com/qboticslabs/mastering_ros
+
 - Working with the `rrbot_gazebo` launch file.
 - Fixing the file hierarchy (workspace doesn't belong in repo)
 
