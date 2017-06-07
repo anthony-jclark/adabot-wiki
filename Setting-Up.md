@@ -19,6 +19,9 @@ sudo apt-get update
 # Install git (version control software)
 sudo apt-get intstall git
 
+# Install a visual merge tool or git
+sudo apt-get install meld
+
 # A utility for using the clipboard from the command line
 sudo apt-get install xclip
 
@@ -35,7 +38,7 @@ sudo apt-get install meshlab
 
 ```bash
 sudo add-apt-repository ppa:gnome-terminator
-sudo apt-get update 
+sudo apt-get update
 sudo apt-get install terminator
 ```
 
@@ -92,8 +95,8 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 sudo apt-get update
 
-# Install the full desktop version, unless you are working on a 
-# headless server--in which case you would use: 
+# Install the full desktop version, unless you are working on a
+# headless server--in which case you would use:
 #    sudo apt-get install ros-kinetic-ros-base
 sudo apt-get install ros-kinetic-desktop-full
 
