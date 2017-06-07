@@ -36,3 +36,8 @@ The basic idea of Github is that you make some changes to the code, `git add` th
 Keeping the wiki as up-to-date as possible is probably one of the most important tasks of anyone on this project. Documentation here will allow the future generations of students to more quickly get up to speed and make this research successful.
 ## Tools for contributing
 - Atom - Githubs code editor. It is very handy as it supports the markdown syntax and even has a Preview feature activated with the shortcut *Ctrl+Shift+M* that gives you a live preview of your changes as you edit the .md files of the wiki. It also connects to the Github you're working in automatically and shows your branch and commit status on the bottom bar.
+
+
+Add some notes about formatting:
+- parameter names with two letter into
+- element names are full names
