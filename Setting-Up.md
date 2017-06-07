@@ -24,6 +24,9 @@ sudo apt-get install xclip
 
 # Enable SSH service for remote login
 sudo apt-get install openssh-server
+
+# Install a mesh viewer editor
+sudo apt-get install meshlab
 ```
 
 ### Install Terminator
