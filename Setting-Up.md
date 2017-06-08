@@ -33,6 +33,9 @@ sudo apt-get install meshlab
 
 # Install FFmpeg (a media utility)
 sudo apt-get install ffmpeg
+
+#
+sudo apt-get install curl
 ```
 
 ### Install Terminator
@@ -138,3 +141,7 @@ Now install [Oh My Zsh](http://ohmyz.sh/), a framework for easy Zsh configuratio
 # Install Oh My Zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ```
+
+
+- other things:
+    + dropbox
