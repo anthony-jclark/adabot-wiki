@@ -30,7 +30,12 @@ https://github.com/qboticslabs/mastering_ros
 
 
 
-- https://askubuntu.com/questions/816540/how-do-you-install-hub-git-wrapper-on-ubuntu-with-autocomplete-and-man-documen 
+- https://askubuntu.com/questions/816540/how-do-you-install-hub-git-wrapper-on-ubuntu-with-autocomplete-and-man-documen
 - http://stackoverflow.com/questions/24987542/is-there-a-link-to-github-for-downloading-a-file-in-the-latest-release-of-a-repo
 - http://www.growingwiththeweb.com/2016/07/enabling-pull-requests-on-github-wikis.html
 
+
+- creating videos
+    + add camera
+    + save to jpgs
+    + convert with ffmpeg

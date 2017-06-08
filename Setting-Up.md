@@ -30,6 +30,9 @@ sudo apt-get install openssh-server
 
 # Install a mesh viewer editor
 sudo apt-get install meshlab
+
+# Install FFmpeg (a media utility)
+sudo apt-get install ffmpeg
 ```
 
 ### Install Terminator
