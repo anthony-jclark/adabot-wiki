@@ -4,9 +4,9 @@ Below are a set of instructions for setting up your development environment. Thi
 These instructions have only been tested with the following setup:
 
 - [Ubuntu 16.04.2 LTS (Xenial Xerus)](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes)
-- [ROS Kinetic Kame](http://wiki.ros.org/kinetic/Installation/Ubuntu) (install ros-kinetic-desktop-full unless you are working on a headless server)
+- [ROS Lunar Loggerhead](http://wiki.ros.org/lunar/Installation/Ubuntu) (install ros-lunar-desktop-full unless you are working on a headless server)
 
-The first several sections below require administrator privilidges. If you are working on the an ARCS Lab machine you can skip down to [User Configuration](#user-configuration) for my suggestions on how to setup your account.
+The first several sections below require administrator privileges. If you are working on the an ARCS Lab machine you can skip down to [User Configuration](#user-configuration) for my suggestions on how to setup your personal user account.
 
 ### General Utilities
 
@@ -17,7 +17,7 @@ Here are a few utilities that will need to be installed:
 sudo apt-get update
 
 # Install git (version control software)
-sudo apt-get intstall git
+sudo apt-get install git
 
 # Install a visual merge tool or git
 sudo apt-get install meld
@@ -28,19 +28,37 @@ sudo apt-get install xclip
 # Enable SSH service for remote login
 sudo apt-get install openssh-server
 
-# Install a mesh viewer editor
+# Install a mesh viewer/editor
 sudo apt-get install meshlab
 
 # Install FFmpeg (a media utility)
 sudo apt-get install ffmpeg
 
-#
+# Install a command line tool for many protocols (HTTPS, FTP, etc.)
 sudo apt-get install curl
+
+# apt-file is a nice utility for managing apt packages
+sudo apt-get install apt-file
+sudo apt-file update
+
+# Set the machine's hostname by editing:
+# - /etc/hostname
+# - /etc/hosts
+
+# Update the graphics driver (**NVidia only**)
+# Check here for version: 
+#   https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+sudo apt-get install nvidia-
+
+# Dropbox: I'd recommend installing via their download-able installer
+# https://www.dropbox.com/install-linux
 ```
 
 ### Install Terminator
 
-[Terminator](https://gnometerminator.blogspot.com/p/introduction.html) is an improved terminal emulator. I prefer this over the built-in terminal emulator options since it includes tabs and panes.
+[Terminator](https://gnometerminator.blogspot.com/p/introduction.html) is an improved terminal emulator. I prefer this over the built-in terminal emulator options (Terminal and XTerm) since it includes tabs and panes.
 
 ```bash
 sudo add-apt-repository ppa:gnome-terminator
@@ -76,7 +94,7 @@ mv ./hub/etc/hub.zsh_completion $ZSH/completions/_hub
 rm -rf hub/
 ```
 
-### Neovim
+### Text editors Neovim and Sublime
 
 Vim is my preferred command-line text editor, and the [neovim](https://neovim.io/) project seems to be headed in a good direction with regard to improving the vim backend (you could just as easily use pure vim).
 
@@ -85,33 +103,42 @@ Vim is my preferred command-line text editor, and the [neovim](https://neovim.io
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
 sudo apt-get install neovim
+```
 
-# Grab a basic vim configuration file from github
-git clone git://github.com/amix/vimrc.git ~/.vim_runtime
-sh ~/.vim_runtime/install_basic_vimrc.sh
+As far as GUI-based text editors go, I like both [Visual Studio Code](https://code.visualstudio.com/) and [Sublime Text 3](https://www.sublimetext.com/3). At the time being, Sublime has a much richer set of available plugins and packages.
+
+```bash
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+
+# Install Sublime Text 2
+sudo apt-get install sublime-text
 ```
 
 ### ROS
 
-Now we are ready to install ROS and its related tools. All of these commands are taken from the [ROS wiki about kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu) and from the [Catkin tools documentation](http://catkin-tools.readthedocs.io/en/latest/installing.html).
+Now we are ready to install ROS and its related tools. All of these commands are taken from the [ROS wiki about lunar](http://wiki.ros.org/lunar/Installation/Ubuntu) and from the [Catkin tools documentation](http://catkin-tools.readthedocs.io/en/latest/installing.html).
 
 ```bash
 # Tell apt-get about ROS
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+
 sudo apt-get update
 
 # Install the full desktop version, unless you are working on a
 # headless server--in which case you would use:
-#    sudo apt-get install ros-kinetic-ros-base
-sudo apt-get install ros-kinetic-desktop-full
+#    sudo apt-get install ros-lunar-ros-base
+sudo apt-get install ros-lunar-desktop-full
 
 # Install additional ROS tools
 sudo rosdep init
 rosdep update
 
 # Tell your shell about the ROS environment
-source /opt/ros/kinetic/setup.zsh
+source /opt/ros/lunar/setup.zsh
 
 # Install additional ROS tools
 sudo apt-get install python-rosinstall
@@ -122,12 +149,15 @@ sudo apt-get update
 sudo apt-get install python-catkin-tools
 
 # Install ROS Control
-sudo apt-get install ros-kinetic-ros-control ros-kinetic-ros-controllers
+sudo apt-get install ros-lunar-ros-control ros-lunar-ros-controllers
+
+# Install Robot Localization 
+sudo apt-get install ros-lunar-robot-localization
 ```
 
 ### User Configuration
 
-To create a non-administrator on the system you use the `adduser` command:
+If you already have an account you can skip this first step. To create a non-administrator on the system you use the `adduser` command:
 
 ```bash
 # Update /etc/adduser.conf and /etc/skel to reflect a new user's
@@ -142,6 +172,10 @@ Now install [Oh My Zsh](http://ohmyz.sh/), a framework for easy Zsh configuratio
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ```
 
+You might also want to find a good default configuration file for vim. I use the following as a starting point:
 
-- other things:
-    + dropbox
+```bash
+# Grab a basic vim configuration file from github
+git clone git://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_basic_vimrc.sh
+```
