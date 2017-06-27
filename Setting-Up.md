@@ -183,8 +183,16 @@ sh ~/.vim_runtime/install_basic_vimrc.sh
 I added the following lines to the end of my `.zshrc` file to make it easier to work with ROS and Gazebo.
 
 ```bash
+# Tell the terminal about ROS and its tools
 source /opt/ros/lunar/setup.zsh
+
+# Tell the terminal about the ROS project
+# (This one may change depending on your file hierarchy)
 source $HOME/ros_workspaces/adabot_ws/devel_debug/setup.zsh
+
+# Include additional verbs for catkin tools (e.g., "source")
 source $(catkin locate --shell-verbs)
+
+# Add to Gazebo's model search path
 export GAZEBO_MODEL_PATH="$(rospack find adabot_gazebo)/worlds/worldModels:$GAZEBO_MODEL_PATH"
 ```
