@@ -179,3 +179,12 @@ You might also want to find a good default configuration file for vim. I use the
 git clone git://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_basic_vimrc.sh
 ```
+
+I added the following lines to the end of my `.zshrc` file to make it easier to work with ROS and Gazebo.
+
+```bash
+source /opt/ros/lunar/setup.zsh
+source $HOME/ros_workspaces/adabot_ws/devel_debug/setup.zsh
+source $(catkin locate --shell-verbs)
+export GAZEBO_MODEL_PATH="$(rospack find adabot_gazebo)/worlds/worldModels:$GAZEBO_MODEL_PATH"
+```
