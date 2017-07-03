@@ -1,4 +1,3 @@
-## Commonly Used Commands
 
 Before running any commands, the ROS environment needs to be setup. You should run the following command the first time that you need to use ROS:
 
@@ -94,9 +93,11 @@ To run all tests for the workspace use the following:
 
 To create a new package, use the following command in the `~/ros_workspaces/adabot_ws/src/adabot/` directory:
 
-`catkin create pkg PKG_NAME -l "MIT" -a "YOUR_NAME" "YOUR_EMAIL" -d "DESCRIPTION"`
+`catkin create pkg PKG_NAME -l "MIT" -a "YOUR_NAME" "YOUR_EMAIL" -d "DESCRIPTION" --catkin-deps DEPENDENCIES`
 
-for which you will need to supply the name of the package, your name and email address, as well as a brief description of the package.
+for which you will need to supply the name of the package, your name and email address, as well as a brief description of the package. Here is an example:
+
+`catkin create pkg adabot_control -l "MIT" -a "Anthony J. Clark" "anthonyjclark@gmail.com" -d "Controllers for the adabot's wheel motors and linear servo motors." --catkin-deps ros_control ros_controllers`
 
 ### Other Commands
 
