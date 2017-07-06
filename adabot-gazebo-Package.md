@@ -22,8 +22,13 @@ step            ...
 ```
 
 #### Launching with parameters
+Multiple parameters can be passed in to adjust different dimensions of adabot
 
-`roslaunch adabot_gazebo adabot.world.launch <prameter>:= <value>`
+`roslaunch adabot_gazebo adabot.world.launch <prameter>:=<value>`
+
+Example:
+
+`roslaunch adabot_gazebo adabot.world.launch ch_width:=.75 wg_per_wheel:=3`
 
 Parameter List
 ```
