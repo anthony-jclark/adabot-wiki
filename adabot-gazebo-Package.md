@@ -46,6 +46,8 @@ rocky3          ...
 step            ...
 ```
 
+__NOTE:__ Any world files created must be kept in the `adabot_gazebo` folder and use the naming schema, `adabot.<world_name>.world`.
+
 ### File Structure
 ```
 adabot_gazebo
@@ -54,11 +56,8 @@ adabot_gazebo
 ├── launch
 |   └── adabot.world.launch
 └── worlds
-    ├── adabot.empty.xacro
+    ├── adabot.empty.world
     ├── ...
     └── worldModels
       └── ...
 ```
-#### 'worlds' folder
-
-This folder contains different worlds that adabot can be launched within. They use the name schema `adabot.<world_name>.xacro`.
