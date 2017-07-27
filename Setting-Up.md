@@ -46,7 +46,7 @@ sudo apt-file update
 # - /etc/hosts
 
 # Update the graphics driver (**NVidia only**)
-# Check here for version: 
+# Check here for version:
 #   https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa
 sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt-get update
@@ -151,8 +151,13 @@ sudo apt-get install python-catkin-tools
 # Install ROS Control
 sudo apt-get install ros-lunar-ros-control ros-lunar-ros-controllers
 
-# Install Robot Localization 
+# Install Robot Localization
 sudo apt-get install ros-lunar-robot-localization
+
+# Download Gazebo models (sometimes necessary)
+mkdir -p ~/.gazebo
+cd ~/.gazebo
+hg clone https://bitbucket.org/osrf/gazebo_models models
 ```
 
 ### User Configuration
