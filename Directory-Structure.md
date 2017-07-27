@@ -8,9 +8,34 @@ adabot
 ├── .travis.yml
 ├── LICENSE
 ├── README.md
+├── adabot_control
+|   └── ...
 ├── adabot_description
-└── adabot_gazebo
+|   ├── CMakeLists.txt
+|   ├── package.xml
+|   ├── launch
+|   |   ├── adabot.display.launch
+|   |   └── adabot.model.launch
+|   ├── rviz
+|   |   └── adabot.rviz
+|   └── urdf
+|       ├── adabot.gazebo.xacro
+|       ├── adabot.macros.xacro
+|       ├── adabot.main.xacro
+|       ├── adabot.materials.xacro
+|       └── adabot.parameters.xacro
+├── adabot_gazebo
+|   ├── CMakeLists.txt
+|   ├── package.xml
+|   ├── launch
+|   |   └── adabot.world.launch
+|   └── worlds
+|      ├── adabot.empty.xacro
+|      ├── ...
+|      └── worldModels
+|         └── ...
+└── adabot_localization
+    └── ...
 ```
 
 ros workspace
-
