@@ -1,0 +1,18 @@
+# How to make a model with Blender
+This part of the guide will explain how to create a basic "RockySurface" in blender. If you have a model.sdf and model.dae already continue to "Adding your model to the world." below.
+- If you do not have Blender yet download it from https://www.blender.org/.
+- Open up Blender and use `Delete` to get rid of any initial object it starts with.
+- On the left hand side tool bar select `Create` and select a Grid.
+- This will add a Grid to your main view and in the top right there should be an object list and you should see a 'Grid' there. Hit the `+` next to it and click the sub `Grid`.
+- Now the grid on your Grid object should be visible, you can change the height of the points on the grid by right-clicking and holding, then move the mouse up and down. Continue to do this until you have a rocky surface. There are also many options below where you selected the grid where you can change how many subdivisions it has.
+- Once you are happy with your RockySurface go to File -> Export, and Export your model as a Collada (.dae). Make sure to give it a unique name.
+
+# How to add your model to a world.
+Now that you have a .dae file you wish to put in a world we can actually put it in one. For the purposes of this tutorial we will be adding it to an empty world but the process is very similar for a world that has some models in it already.
+- First we need to put our .dae in the correct place so the adabot system knows where it is. Navigate to the `worldModels` folder in the `adabot_ws`. As of 6/17/2017 the path is `home/[yourusrname]/ros_workspaces/adabot_ws/src/adabot/adabot_gazebo/worlds/worldModels`.
+- In worldModels make a folder with the name of your model. In that folder make a folder called `meshes` and put the .dae in `meshes`.
+- Go back to the `worlds` folder. In `worlds` there should be a `adabot.empty.world`. Copy that and name it `adabot.[yourModelName].world`. Now you have a unique world you can mess with.
+- In a terminal use `home/[yourusrname]/ros_workspaces/adabot_ws/src/adabot/adabot_gazebo/worlds` to get to the folder with your world and type `gazebo adabot.[yourModelName].world`.
+- Now that you are in an empty world, click Edit -> Model Editor. On the left under the "Custom Shapes" click "Add". Navigate to your .dae file and hit "Import".
+- If you seee the model appear in the world, hit File -> Save As, give the model a name (The same name as your model would be best.) and browse the save location to your models folder in `worldModels`, the same location as the `meshes` folder. You should then have the files `model.config` and a `model.sdf` in an folder `Untitled`. Take the two files out and put them next to `meshes`. After you have save your model exit the Model Editor in File and finally do File -> Save As, to save your world. You will want to overwrite the world you made earlier in `home/[yourusrname]/ros_workspaces/adabot_ws/src/adabot/adabot_gazebo/worlds`.
+- Now for the final step! Open the world file you have been working on in your choice of text editor. Ctrl + F to your models name you save it as in the world and under the `<geometry>` XML tag under `<visual name>` and `<collision name>` you must change the file path in `<uri>` that points to your local .dae and change it to `model://[yourFolder]/meshes/[youFileName].dae`. This change allows ros to find the models after you put `export GAZEBO_MODEL_PATH=~/ros_workspaces/adabot_ws/src/adabot/adabot_gazebo/worlds/worldModels` into your Terminal. That line tells ROS that there are models it can use in that folder in the adabot workspace.
