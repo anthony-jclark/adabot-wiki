@@ -21,7 +21,7 @@ Example:
 Parameter List
 ```
 PARAMETER       DESCRIPTION                               EXAMPLE
-debug_visual    if true uses true geometry for visuals    false
+debug_visuals   if true uses true geometry for visuals    false
 ch_width        width of the chasis                       0.100
 ch_length       length of the chasis                      0.070
 wh_radius       radius for each wheel                     0.020
