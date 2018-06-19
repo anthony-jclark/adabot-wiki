@@ -12,7 +12,7 @@ Command to launch adabot in a gazebo world:
 #### Launching with parameters
 Multiple parameters can be passed in to adjust different dimensions of adabot
 
-`roslaunch adabot_gazebo adabot.world.launch <prameter>:=<value>`
+`roslaunch adabot_gazebo adabot.world.launch <parameter>:=<value>`
 
 Example:
 

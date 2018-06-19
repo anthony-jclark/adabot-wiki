@@ -3,8 +3,8 @@ Below are a set of instructions for setting up your development environment. Thi
 
 These instructions have only been tested with the following setup:
 
-- [Ubuntu 16.04.2 LTS (Xenial Xerus)](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes)
-- [ROS Lunar Loggerhead](http://wiki.ros.org/lunar/Installation/Ubuntu) (install ros-lunar-desktop-full unless you are working on a headless server)
+- [Ubuntu 18.04 LTS (Bionic Beaver)](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes)
+- [ROS Melodic Morenia](http://wiki.ros.org/melodic/Installation) (install ros-melodic-desktop-full unless you are working on a headless server)
 
 The first several sections below require administrator privileges. If you are working on the an ARCS Lab machine you can skip down to [User Configuration](#user-configuration) for my suggestions on how to setup your personal user account.
 
@@ -118,7 +118,7 @@ sudo apt-get install sublime-text
 
 ### ROS
 
-Now we are ready to install ROS and its related tools. All of these commands are taken from the [ROS wiki about lunar](http://wiki.ros.org/lunar/Installation/Ubuntu) and from the [Catkin tools documentation](http://catkin-tools.readthedocs.io/en/latest/installing.html).
+Now we are ready to install ROS and its related tools. All of these commands are taken from the [ROS wiki about Melodic](http://wiki.ros.org/melodic/Installation) and from the [Catkin tools documentation](http://catkin-tools.readthedocs.io/en/latest/installing.html).
 
 ```bash
 # Tell apt-get about ROS
@@ -130,15 +130,16 @@ sudo apt-get update
 
 # Install the full desktop version, unless you are working on a
 # headless server--in which case you would use:
-#    sudo apt-get install ros-lunar-ros-base
-sudo apt-get install ros-lunar-desktop-full
+#    sudo apt-get install ros-melodic-ros-base
+# This package is roughly 2GB in size. It can take a while depending on your internet connection.
+sudo apt-get sudo apt-get install ros-melodic-desktop-full
 
 # Install additional ROS tools
 sudo rosdep init
 rosdep update
 
 # Tell your shell about the ROS environment
-source /opt/ros/lunar/setup.zsh
+source /opt/ros/melodic/setup.zsh
 
 # Install additional ROS tools
 sudo apt-get install python-rosinstall
@@ -149,10 +150,10 @@ sudo apt-get update
 sudo apt-get install python-catkin-tools
 
 # Install ROS Control
-sudo apt-get install ros-lunar-ros-control ros-lunar-ros-controllers
+sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
 
 # Install Robot Localization
-sudo apt-get install ros-lunar-robot-localization
+sudo apt-get install ros-melodic-robot-localization
 
 # Download Gazebo models (sometimes necessary)
 mkdir -p ~/.gazebo
@@ -189,7 +190,7 @@ I added the following lines to the end of my `.zshrc` file to make it easier to 
 
 ```bash
 # Tell the terminal about ROS and its tools
-source /opt/ros/lunar/setup.zsh
+source /opt/ros/melodic/setup.zsh
 
 # Tell the terminal about the ROS project
 # (This one may change depending on your file hierarchy)
